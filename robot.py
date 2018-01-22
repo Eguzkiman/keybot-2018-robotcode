@@ -30,6 +30,9 @@ class MyRobot(wpilib.IterativeRobot):
         self.motor2 = wpilib.Jaguar(5)
         self.motor3 = wpilib.Jaguar(6)
 
+        self.button_RB = JoystickButton(self.stick, 1)
+		self.button_LB = JoystickButton(self.stick, 2)
+		self.button_B = JoystickButton(self.stick, 3)
 
 
     def autonomousInit(self):
