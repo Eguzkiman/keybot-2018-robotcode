@@ -26,9 +26,9 @@ class MyRobot(wpilib.IterativeRobot):
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
-        self.motor1 = wpilib.Jaguar(4)
-        self.motor2 = wpilib.Jaguar(5)
-        self.motor3 = wpilib.Jaguar(6)
+        self.lift1 = wpilib.Jaguar(4)
+        self.lift2 = wpilib.Jaguar(5)
+        self.drop = wpilib.Jaguar(6)
 
         self.button_RB = JoystickButton(self.stick, 1)
 		self.button_LB = JoystickButton(self.stick, 2)
@@ -47,32 +47,54 @@ class MyRobot(wpilib.IterativeRobot):
         if self.timer.get() < 2.0:
             self.drive.arcadeDrive(1, 0)  
         elif self.timer.get() < 4.0:
-            self.motor1.set(1)
-            self.motor2.set(1)
+            self.lift1.set(1)
+            self.lift2.set(1)
         elif self.timer.get() < 5.5:
-            self.motor3.set(1)
-            self.motor1.set(0)
-            self.motor2.set(0)
+            self.drop.set(1)
+            self.lift1.set(0)
+            self.lift2.set(0)
         elif self.timer.get() < 7.5:
-            self.motor1.set(-1)
-            self.motor2.set(-1)
-            self.motor3.set(0)
+            self.lift1.set(-1)
+            self.lift2.set(-1)
+            self.drop.set(0)
         elif self.timer.get() < 9.5:
             self.drive.arcadeDrive(-1, 0)  
-            self.motor1.set(0)
-            self.motor2.set(0)
+            self.lift1.set(0)
+            self.lift2.set(0)
 
         else:
             self.drive.arcadeDrive(0, 0)
-            self.motor1.set(0)
-            self.motor2.set(0)
-            self.motor3.set(0)
+            self.lift1.set(0)
+            self.lift2.set(0)
+            self.drop.set(0)
 
               # Stop robot
 
-    def teleopPeriodic(self):
-        """This function is called periodically during operator control."""
-        self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
+   def teleopPeriodic(self):
+		"""This function is called periodically during operator control."""
+
+		
+		if self.button_RB.get():
+			self.lift1.set(1)
+			self.lift2.set(1)
+
+
+		elif self.button_LB.get():
+			self.lift1.set(-0.7)
+			self.lift2.set(-0.7)
+		
+		else:
+			self.lift1.set(0)
+			self.lift2.set(0)
+
+
+		if self.button_B.get():
+			self.drop.set(1)
+
+			
+		else:
+			self.drop.set(0)
+
 
 
 if __name__ == "__main__":
