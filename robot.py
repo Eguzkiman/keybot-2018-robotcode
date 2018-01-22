@@ -113,6 +113,15 @@ class MyRobot(wpilib.IterativeRobot):
 		else:
 			self.drop.set(0)
 
+	def disabledInit(self):
+		self.rearLeft.set(0)
+		self.frontLeft.set(0)
+		self.rearRight.set(0)
+		self.frontRight.set(0)
+		self.lift1.set(0)
+		self.lift2.set(0)
+		self.drop.set(0)
+
 
 
 if __name__ == "__main__":
