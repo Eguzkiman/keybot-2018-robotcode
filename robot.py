@@ -14,14 +14,21 @@ class MyRobot(wpilib.IterativeRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
-        self.left_motor = wpilib.Jaguar(0)
-        self.right_motor = wpilib.Jaguar(1)
-        self.drive = wpilib.drive.DifferentialDrive(self.left_motor, self.right_motor)
-        self.stick = wpilib.Joystick(1)
+
+        self.frontLeft = wpilib.Jaguar(0)
+        self.rearLeft = wpilib.Jaguar(1)
+        self.left = wpilib.SpeedControllerGroup(self.frontLeft, self.rearLeft)
+
+        self.frontRight = wpilib.Jaguar(2)
+        self.rearRight = wpilib.Jaguar(3)
+        self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
+
+        self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
+        self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
-        self.motor1 = wpilib.Jaguar(5)
-        self.motor2 = wpilib.Jaguar(6)
-        self.motor3 = wpilib.Jaguar(7)
+        self.motor1 = wpilib.Jaguar(4)
+        self.motor2 = wpilib.Jaguar(5)
+        self.motor3 = wpilib.Jaguar(6)
 
 
 
