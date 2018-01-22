@@ -5,6 +5,7 @@
 
 import wpilib
 import wpilib.drive
+from wpilib.buttons import JoystickButton
 
 
 class MyRobot(wpilib.IterativeRobot):
@@ -24,15 +25,16 @@ class MyRobot(wpilib.IterativeRobot):
 		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
 		self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
-		self.stick = wpilib.Joystick(0)
+		self.stick = wpilib.Joystick(1)
 		self.timer = wpilib.Timer()
 		self.lift1 = wpilib.Jaguar(4)
 		self.lift2 = wpilib.Jaguar(5)
 		self.drop = wpilib.Jaguar(6)
 
-		self.button_RB = JoystickButton(self.stick, 1)
-		self.button_LB = JoystickButton(self.stick, 2)
-		self.button_B = JoystickButton(self.stick, 3)
+		self.button_RB = JoystickButton(self.stick, 2)
+		self.button_LB = JoystickButton(self.stick, 3)
+		self.button_B = JoystickButton(self.stick, 4)
+		self.button_a = JoystickButton(self.stick, 1)
 
 
 	def autonomousInit(self):
@@ -70,7 +72,7 @@ class MyRobot(wpilib.IterativeRobot):
 
 			  # Stop robot
 
-   def teleopPeriodic(self):
+	def teleopPeriodic(self):
 
 		if self.stick.getX() < 0.1 and self.stick.getY() < 0.1 and self.stick.getX() > -0.1 and self.stick.getY() > -0.1:
 			self.drive.arcadeDrive(0,0)
