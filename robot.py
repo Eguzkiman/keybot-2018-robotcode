@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-	This is a good foundation to build your robot code on
-"""
 
 import wpilib
 import wpilib.drive
@@ -11,10 +8,7 @@ from wpilib.buttons import JoystickButton
 class MyRobot(wpilib.IterativeRobot):
 
 	def robotInit(self):
-		"""
-		This function is called upon program startup and
-		should be used for any initialization code.
-        """
+
 
 		self.stick = wpilib.Joystick(0)
 		self.timer = wpilib.Timer()
@@ -52,9 +46,7 @@ class MyRobot(wpilib.IterativeRobot):
 
 
 	def autonomousPeriodic(self):
-		"""This function is called periodically during autonomous."""
 
-		# Drive for two seconds
 		if self.timer.get() < 2.0:
 			self.drive.arcadeDrive(1, 0)  
 
@@ -87,7 +79,7 @@ class MyRobot(wpilib.IterativeRobot):
 
 
 	def teleopPeriodic(self):
-		"""This function is called periodically during operator control."""
+	
 		if self.stick.getX() < 0.1 and self.stick.getY() < 0.1 and self.stick.getX() > -0.1 and self.stick.getY() > -0.1:
 			self.drive.arcadeDrive(0,0)
 		else: 
