@@ -22,7 +22,7 @@ class MyRobot(wpilib.IterativeRobot):
 		self.lift1 = wpilib.Jaguar(4)
 		self.lift2 = wpilib.Jaguar(5)
 		self.drop = wpilib.Jaguar(6)
-=======
+
 	
 		self.frontLeft = wpilib.Jaguar(0)
 		self.rearLeft = wpilib.Jaguar(1)
@@ -50,9 +50,7 @@ class MyRobot(wpilib.IterativeRobot):
 		
 		self.timer.reset()
 		self.timer.start()
-<<<<<<< HEAD
-	
-=======
+
 
 	def autonomousPeriodic(self):
 		"""This function is called periodically during autonomous."""
@@ -87,7 +85,7 @@ class MyRobot(wpilib.IterativeRobot):
 			self.drop.set(0)
 
 			  # Stop robot 
->>>>>>> fa02906d882eb89bb2dd7d8800e376e852c31a6f
+
 
 	def teleopPeriodic(self):
 		"""This function is called periodically during operator control."""
@@ -133,7 +131,6 @@ class MyRobot(wpilib.IterativeRobot):
 
 if __name__ == "__main__":
 	wpilib.run(MyRobot)
-<<<<<<< HEAD
 
 	""" Copyright (c) 2018 KEYBOT 5716
 
@@ -158,5 +155,3 @@ OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
 OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. """
-=======
->>>>>>> fa02906d882eb89bb2dd7d8800e376e852c31a6f
