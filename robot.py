@@ -78,3 +78,14 @@ class MyRobot(wpilib.IterativeRobot):
 
 if __name__ == "__main__":
 	wpilib.run(MyRobot)
+
+""" Instrucciones para desplegar y probar el codigo
+
+	-Debes instalar pip con el comando "pip3 install pyfrc" en la terminal
+	-Si te dice que no esta actualizado usa "pip3 install --upgrade pyfrc"
+	-Entra a la carpeta "keybot-2018-robotcode" 
+	-Con "git branch master" te mueves al codigo shido
+	-Para correr el codigo en el simulador escribes "py -3 robot.py sim"
+	-Para subir el codigo al roboRIO escribes "py -3 robot.py deploy --skip-tests --no-version-check"
+
+	
