@@ -119,10 +119,6 @@ class MyRobot(wpilib.IterativeRobot):
 if __name__ == "__main__":
 	wpilib.run(MyRobot)
 
-<<<<<<< HEAD
-
-
-
 """ Instrucciones para desplegar y probar el codigo
 
 	-Debes instalar pip con el comando "pip3 install pyfrc" en la terminal
