@@ -7,15 +7,6 @@ from wpilib.buttons import JoystickButton
 
 class MyRobot(wpilib.IterativeRobot):
 
-	"""
-	Estos son comentarios random
-	Estos son comentarios random
-	Estos son comentarios random
-	Estos son comentarios random
-	Estos son comentarios random
-	Estos son comentarios random
-	"""
-
 	def robotInit(self):
 
 
