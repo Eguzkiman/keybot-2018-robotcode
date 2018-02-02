@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-	This is a good foundation to build your robot code on
-"""
 
 import wpilib
 import wpilib.drive
@@ -20,10 +17,11 @@ class MyRobot(wpilib.IterativeRobot):
 	"""
 
 	def robotInit(self):
-		"""
-		This function is called upon program startup and
-		should be used for any initialization code.
-		"""
+
+
+		self.stick = wpilib.Joystick(0)
+		self.timer = wpilib.Timer()
+	
 		self.frontLeft = wpilib.Jaguar(0)
 		self.rearLeft = wpilib.Jaguar(1)
 		self.left = wpilib.SpeedControllerGroup(self.frontLeft, self.rearLeft)
@@ -40,20 +38,19 @@ class MyRobot(wpilib.IterativeRobot):
 		self.lift2 = wpilib.Jaguar(6)
 		self.drop = wpilib.Jaguar(7)
 
+
 		self.button_a = JoystickButton(self.stick, 1)
 		self.button_RB = JoystickButton(self.stick, 2)
 		self.button_LB = JoystickButton(self.stick, 3)
 		self.button_B = JoystickButton(self.stick, 4)
 
 	def autonomousInit(self):
-		"""This function is run once each time the robot enters autonomous mode."""
+		
 		self.timer.reset()
 		self.timer.start()
 
-	def autonomousPeriodic(self):
-		"""This function is called periodically during autonomous."""
 
-	   # Drive for two seconds
+	def autonomousPeriodic(self):
 		if self.timer.get() < 2.0:
 			self.drive.arcadeDrive(1, 0)  
 
@@ -84,8 +81,9 @@ class MyRobot(wpilib.IterativeRobot):
 
 			  # Stop robot 
 
+
 	def teleopPeriodic(self):
-		"""This function is called periodically during operator control."""
+	
 		if self.stick.getX() < 0.1 and self.stick.getY() < 0.1 and self.stick.getX() > -0.1 and self.stick.getY() > -0.1:
 			self.drive.arcadeDrive(0,0)
 		else: 
@@ -129,3 +127,40 @@ class MyRobot(wpilib.IterativeRobot):
 
 if __name__ == "__main__":
 	wpilib.run(MyRobot)
+
+<<<<<<< HEAD
+
+
+
+""" Instrucciones para desplegar y probar el codigo
+
+	-Debes instalar pip con el comando "pip3 install pyfrc" en la terminal
+	-Si te dice que no esta actualizado usa "pip3 install --upgrade pyfrc"
+	-Entra a la carpeta "keybot-2018-robotcode" 
+	-Con "git branch master" te mueves al codigo shido
+	-Para correr el codigo en el simulador escribes "py -3 robot.py sim"
+	-Para subir el codigo al roboRIO escribes "py -3 robot.py deploy --skip-tests --no-version-check"
+"""
+	""" Copyright (c) 2018 KEYBOT 5716
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions of
+the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. """
